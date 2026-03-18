@@ -4,16 +4,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Interactive Tech Lab | My Portfolio</title>
-    <!-- 引入 Tailwind CSS -->
+    <title>Interactive Tech Lab</title>
+    <!-- Import Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     
-    <!-- 引入公共样式库：包含滚动条、动画、通用容器样式等 -->
+    <!-- Import shared styles: includes scrollbars, animations, container styles etc. -->
     <link rel="stylesheet" href="css/shared.css">
+    <!-- Internationalization logic inlined in bottom script -->
 </head>
 <body class="bg-slate-50 text-slate-800 font-sans antialiased selection:bg-blue-200">
 
-    <!-- 顶部导航栏 -->
+    <!-- Top Navigation Bar -->
     <nav class="bg-white border-b border-slate-200 sticky top-0 z-50 shadow-sm">
         <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between h-16 items-center">
@@ -21,67 +22,67 @@
                     <span class="text-2xl">✨</span>
                     <span class="font-bold text-xl tracking-tight text-slate-800">Tech<span class="text-blue-600">Lab</span></span>
                 </div>
-                <div class="hidden md:flex space-x-8">
-                    <a href="#" class="text-slate-600 hover:text-blue-600 px-3 py-2 rounded-md text-sm font-medium transition-colors">首页</a>
-                    <a href="#projects" class="text-slate-600 hover:text-blue-600 px-3 py-2 rounded-md text-sm font-medium transition-colors">实验室</a>
-                    <a href="https://github.com/DengmengLiu" target="_blank" class="text-slate-600 hover:text-blue-600 px-3 py-2 rounded-md text-sm font-medium transition-colors">GitHub</a>
+                <div class="hidden md:flex space-x-8 items-center">
+                    <a href="#" class="text-slate-600 hover:text-blue-600 px-3 py-2 rounded-md text-sm font-medium transition-colors" data-i18n="nav.home"></a>
+                    <a href="#projects" class="text-slate-600 hover:text-blue-600 px-3 py-2 rounded-md text-sm font-medium transition-colors" data-i18n="nav.lab"></a>
+                    <a href="https://github.com/DengmengLiu" target="_blank" class="text-slate-600 hover:text-blue-600 px-3 py-2 rounded-md text-sm font-medium transition-colors" data-i18n="nav.github"></a>
+                    
+                    <!-- Language Switcher -->
+                    <div class="flex items-center gap-2 ml-4 pl-4 border-l border-slate-200">
+                        <button id="lang-en" class="px-3 py-1.5 rounded-md text-sm font-semibold text-white bg-blue-600 hover:bg-blue-700 transition" onclick="i18n.setLanguage('en')">EN</button>
+                        <button id="lang-zh" class="px-3 py-1.5 rounded-md text-sm font-semibold text-slate-600 hover:bg-slate-100 transition" onclick="i18n.setLanguage('zh')">中文</button>
+                    </div>
                 </div>
             </div>
         </div>
     </nav>
 
-    <!-- 头部 Hero 区域 -->
+    <!-- Hero Section -->
     <header class="bg-white py-20 border-b border-slate-100">
         <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
             <h1 class="text-4xl md:text-6xl font-extrabold text-slate-900 tracking-tight mb-6">
-                把硬核知识变成 <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-emerald-500">交互体验</span>
+                <span data-i18n="hero.title"></span> <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-emerald-500" data-i18n="hero.titleHighlight"></span>
             </h1>
-            <p class="mt-4 max-w-2xl mx-auto text-xl text-slate-500">
-                这里是我的个人技术分享实验室。我喜欢把枯燥的算法、数学和图形学原理，拆解成可以通过鼠标拖拽、滑块调节的交互式网页。
-            </p>
+            <p class="mt-4 max-w-2xl mx-auto text-xl text-slate-500" data-i18n="hero.description"></p>
             <div class="mt-10 flex justify-center gap-4">
-                <a href="#projects" class="bg-slate-900 text-white px-8 py-3 rounded-full font-bold hover:bg-slate-800 transition-all shadow-lg hover:shadow-xl transform hover:-translate-y-0.5">
-                    探索实验室 ↓
-                </a>
+                <a href="#projects" class="bg-slate-900 text-white px-8 py-3 rounded-full font-bold hover:bg-slate-800 transition-all shadow-lg hover:shadow-xl transform hover:-translate-y-0.5" data-i18n="hero.cta"></a>
             </div>
         </div>
     </header>
 
-    <!-- 项目卡片网格区域 -->
+    <!-- Projects Grid Section -->
     <main id="projects" class="py-20 bg-slate-50">
         <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="mb-12 border-b border-slate-200 pb-4">
-                <h2 class="text-3xl font-bold text-slate-800">互动分享系列 (Tech Shares)</h2>
-                <p class="text-slate-500 mt-2">点击卡片进入沉浸式讲解页面。</p>
+                <h2 class="text-3xl font-bold text-slate-800" data-i18n="projects.title"></h2>
+                <p class="text-slate-500 mt-2" data-i18n="projects.subtitle"></p>
             </div>
 
-            <!-- CSS Grid 布局：手机1列，平板2列，桌面3列 -->
+            <!-- CSS Grid Layout: 1 col mobile, 2 cols tablet, 3 cols desktop -->
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
 
-                <!-- 卡片 1：贝塞尔曲线 -->
+                <!-- Card 1: Bezier Curves -->
                 <a href="pages/bezier-curves.html" class="group bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl border border-slate-200 transition-all duration-300 transform hover:-translate-y-1 flex flex-col">
-                    <!-- 封面图占位 (建议比例 16:9) -->
+                    <!-- Cover placeholder (Recommended ratio 16:9) -->
                     <div class="w-full h-48 bg-slate-100 relative overflow-hidden flex items-center justify-center">
                         <img src="images/cover-bezier.jpg" alt="" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
                         <div class="absolute inset-0 hidden items-center justify-center bg-blue-50 text-blue-300 text-6xl">📈</div>
                     </div>
-                    <!-- 卡片内容 -->
+                    <!-- Card Content -->
                     <div class="p-6 flex-1 flex flex-col">
                         <div class="flex items-center gap-2 mb-3">
-                            <span class="px-2.5 py-0.5 rounded-full bg-blue-100 text-blue-700 text-xs font-bold">图形学</span>
-                            <span class="px-2.5 py-0.5 rounded-full bg-slate-100 text-slate-600 text-xs font-bold">数学</span>
+                            <span class="px-2.5 py-0.5 rounded-full bg-blue-100 text-blue-700 text-xs font-bold" data-i18n="card.bezier.tag1"></span>
+                            <span class="px-2.5 py-0.5 rounded-full bg-slate-100 text-slate-600 text-xs font-bold" data-i18n="card.bezier.tag2"></span>
                         </div>
-                        <h3 class="text-xl font-bold text-slate-800 mb-2 group-hover:text-blue-600 transition-colors">贝塞尔曲线：图形学的基石</h3>
-                        <p class="text-slate-600 text-sm mb-6 flex-1">
-                            从简单的线性插值到 De Casteljau 算法。通过拖拽控制点，直观理解切线、包围盒以及游戏引擎中的弧长匀速难题。
-                        </p>
+                        <h3 class="text-xl font-bold text-slate-800 mb-2 group-hover:text-blue-600 transition-colors" data-i18n="card.bezier.title"></h3>
+                        <p class="text-slate-600 text-sm mb-6 flex-1" data-i18n="card.bezier.description"></p>
                         <div class="flex items-center text-sm font-bold text-blue-600">
-                            进入演示 <span class="ml-1 group-hover:translate-x-1 transition-transform">→</span>
+                            <span data-i18n="card.bezier.cta"></span> <span class="ml-1 group-hover:translate-x-1 transition-transform">→</span>
                         </div>
                     </div>
                 </a>
 
-                <!-- 卡片 2：地形生成 -->
+                <!-- Card 2: Terrain Generation -->
                 <a href="pages/terrain-generation.html" class="group bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl border border-slate-200 transition-all duration-300 transform hover:-translate-y-1 flex flex-col">
                     <div class="w-full h-48 bg-slate-100 relative overflow-hidden flex items-center justify-center">
                         <img src="images/cover-terrain.jpg" alt="" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
@@ -89,42 +90,135 @@
                     </div>
                     <div class="p-6 flex-1 flex flex-col">
                         <div class="flex items-center gap-2 mb-3">
-                            <span class="px-2.5 py-0.5 rounded-full bg-orange-100 text-orange-700 text-xs font-bold">算法</span>
-                            <span class="px-2.5 py-0.5 rounded-full bg-emerald-100 text-emerald-700 text-xs font-bold">游戏开发</span>
+                            <span class="px-2.5 py-0.5 rounded-full bg-orange-100 text-orange-700 text-xs font-bold" data-i18n="card.terrain.tag1"></span>
+                            <span class="px-2.5 py-0.5 rounded-full bg-emerald-100 text-emerald-700 text-xs font-bold" data-i18n="card.terrain.tag2"></span>
                         </div>
-                        <h3 class="text-xl font-bold text-slate-800 mb-2 group-hover:text-blue-600 transition-colors">无限世界背后的魔力：地形生成</h3>
-                        <p class="text-slate-600 text-sm mb-6 flex-1">
-                            《我的世界》是如何生成无限地图的？一步步带你从纯随机、值噪声走到柏林噪声，亲手调节 FBM 参数生成真实山脉。
-                        </p>
+                        <h3 class="text-xl font-bold text-slate-800 mb-2 group-hover:text-blue-600 transition-colors" data-i18n="card.terrain.title"></h3>
+                        <p class="text-slate-600 text-sm mb-6 flex-1" data-i18n="card.terrain.description"></p>
                         <div class="flex items-center text-sm font-bold text-blue-600">
-                            进入演示 <span class="ml-1 group-hover:translate-x-1 transition-transform">→</span>
+                            <span data-i18n="card.terrain.cta"></span> <span class="ml-1 group-hover:translate-x-1 transition-transform">→</span>
                         </div>
                     </div>
                 </a>
 
-                <!-- 卡片 3：敬请期待 (占位符，演示如何轻松扩展) -->
+                <!-- Card 3: Coming Soon (Placeholder, showing how to extend) -->
                 <div class="group bg-slate-50 rounded-2xl overflow-hidden border-2 border-dashed border-slate-300 flex flex-col items-center justify-center min-h-[350px]">
                     <div class="w-16 h-16 bg-slate-200 rounded-full flex items-center justify-center text-2xl mb-4">
                         🚧
                     </div>
-                    <h3 class="text-lg font-bold text-slate-500 mb-2">下一个主题正在路上...</h3>
-                    <p class="text-slate-400 text-sm text-center px-6">
-                        可能是关于寻路算法、状态机或者是 UI 缓动动画。
-                    </p>
+                    <h3 class="text-lg font-bold text-slate-500 mb-2" data-i18n="card.coming.title"></h3>
+                    <p class="text-slate-400 text-sm text-center px-6" data-i18n="card.coming.description"></p>
                 </div>
 
             </div>
         </div>
     </main>
 
-    <!-- 页脚 -->
+    <!-- Footer -->
     <footer class="bg-white border-t border-slate-200 py-12 mt-12">
         <div class="max-w-6xl mx-auto px-4 text-center">
-            <p class="text-slate-500 text-sm">
-                &copy; 2024 Interactive Tech Lab. Built with Tailwind CSS & Vanilla JS.
-            </p>
+            <p class="text-slate-500 text-sm" data-i18n="footer.copyright"></p>
         </div>
     </footer>
 
 </body>
+<script>
+// Translation Data
+const i18nData = {
+    en: {
+        nav: { home: "Home", lab: "Lab", github: "GitHub" },
+        hero: { 
+            title: "Explore", 
+            titleHighlight: "The Beauty of Algorithms", 
+            description: "Interactive visualization of complex algorithms. Unveiling the mathematics behind graphics and procedural generation.", 
+            cta: "View Experiments" 
+        },
+        projects: { title: "Interactive Labs", subtitle: "Hands-on Technical Demos" },
+        card: {
+            bezier: { 
+                tag1: "Graphics", tag2: "Math", title: "Bézier Curves", 
+                description: "Interactive exploration of how computer graphics draw curves using linear interpolation and Bernstein polynomials.", 
+                cta: "Enter Lab" 
+            },
+            terrain: { 
+                tag1: "PCG", tag2: "Noise", title: "Terrain Generation", 
+                description: "From Value Noise to Perlin Noise and FBM. Understanding how to generate infinite procedural worlds.", 
+                cta: "Enter Lab" 
+            },
+            coming: { title: "Coming Soon", description: "More experiments under construction..." }
+        },
+        footer: { copyright: "© 2023 TechLab. Built with ❤️ and Code." }
+    },
+    zh: {
+        nav: { home: "首页", lab: "实验室", github: "GitHub" },
+        hero: { 
+            title: "探索", 
+            titleHighlight: "代码与算法之美", 
+            description: "复杂算法的交互式可视化。揭秘计算机图形学与程序化生成背后的数学原理。", 
+            cta: "查看实验" 
+        },
+        projects: { title: "交互式实验室", subtitle: "亲手操作的技术演示" },
+        card: {
+            bezier: { 
+                tag1: "图形学", tag2: "数学", title: "贝塞尔曲线", 
+                description: "探索计算机图形学的基石。交互式演示线性插值与伯恩斯坦多项式的绘图原理。", 
+                cta: "进入实验室" 
+            },
+            terrain: { 
+                tag1: "程序化生成", tag2: "噪声", title: "地形生成", 
+                description: "从数值噪声到柏林噪声与 FBM。深入了解如何生成无限的程序化世界。", 
+                cta: "进入实验室" 
+            },
+            coming: { title: "敬请期待", description: "更多有趣实验正在开发中..." }
+        },
+        footer: { copyright: "© 2023 TechLab. 用 ❤️ 和代码构建。" }
+    }
+};
+
+// Internationalization Logic
+const i18n = {
+    currentLang: 'zh',
+    
+    setLanguage(lang) {
+        this.currentLang = lang;
+        document.documentElement.lang = lang === 'zh' ? 'zh-CN' : 'en';
+        
+        // 1. Update text content
+        document.querySelectorAll('[data-i18n]').forEach(el => {
+            const key = el.getAttribute('data-i18n');
+            // Use reduce to parse nested keys (e.g. 'nav.home')
+            const val = key.split('.').reduce((obj, k) => obj && obj[k], i18nData[lang]);
+            if (val) el.textContent = val;
+        });
+
+        // 2. Update button styles
+        const btnEn = document.getElementById('lang-en');
+        const btnZh = document.getElementById('lang-zh');
+        const activeClass = "px-3 py-1.5 rounded-md text-sm font-semibold text-white bg-blue-600 hover:bg-blue-700 transition";
+        const inactiveClass = "px-3 py-1.5 rounded-md text-sm font-semibold text-slate-600 hover:bg-slate-100 transition";
+        
+        if (lang === 'en') {
+            btnEn.className = activeClass;
+            btnZh.className = inactiveClass;
+        } else {
+            btnZh.className = activeClass;
+            btnEn.className = inactiveClass;
+        }
+        
+        // 3. Save preferences
+        localStorage.setItem('techlab_lang', lang);
+    },
+    
+    getCurrentLanguage() { return this.currentLang; },
+    
+    init() {
+        const saved = localStorage.getItem('techlab_lang');
+        const browser = navigator.language.includes('zh') ? 'zh' : 'en';
+        this.setLanguage(saved || browser);
+    }
+};
+
+// Initialize on load
+document.addEventListener('DOMContentLoaded', () => i18n.init());
+</script>
 </html>

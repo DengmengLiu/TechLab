@@ -60,6 +60,10 @@ canvas {
     animation: fadeIn 0.5s ease-out forwards;
 }
 
+.step-hidden {
+    display: none;
+}
+
 .step-visible {
     display: block;
     animation: fadeIn 0.5s ease-out forwards;
