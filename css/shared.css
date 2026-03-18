@@ -1,0 +1,169 @@
+/*
+ * Shared styles for the TechLab project.
+ * Unified CSS file combining previous bezier.css and styles.css.
+ */
+
+/* =========================================
+   1. Global Overrides & Scrollbars
+   ========================================= */
+
+/* Custom Scrollbar for Webkit (matches Tailwind Slate theme) */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f5f9; /* slate-100 */
+}
+
+::-webkit-scrollbar-thumb {
+  background: #cbd5e1; /* slate-300 */
+  border-radius: 10px;
+  border: 2px solid #f1f5f9;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #94a3b8; /* slate-400 */
+}
+
+canvas {
+    display: block;
+    width: 100%;
+}
+
+/* =========================================
+   2. Common Components (Buttons, Cards)
+   ========================================= */
+
+/* Standard Button Base */
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.75rem 1.5rem; /* px-6 py-3 */
+    border-radius: 9999px;   /* rounded-full */
+    font-weight: 700;        /* font-bold */
+    transition: all 0.2s ease-in-out;
+    cursor: pointer;
+    text-decoration: none;
+    border: 2px solid transparent;
+}
+
+/* Primary Button (Dark Slate) - Matches index.html hero button */
+.btn-primary {
+    background-color: #0f172a; /* slate-900 */
+    color: #ffffff;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+}
+
+.btn-primary:hover {
+    background-color: #1e293b; /* slate-800 */
+    transform: translateY(-2px);
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+}
+
+/* Secondary Button (Outline) */
+.btn-secondary {
+    background-color: transparent;
+    color: #475569; /* slate-600 */
+    border-color: #e2e8f0; /* slate-200 */
+}
+
+.btn-secondary:hover {
+    border-color: #2563eb; /* blue-600 */
+    color: #2563eb;
+}
+
+/* Game/Experiment Card Placeholder (from styles.css) */
+.game-card {
+    background-color: #e7e5e4;
+    height: 120px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 0.5rem;
+    color: #57534e;
+    font-weight: bold;
+    text-align: center;
+    padding: 1rem;
+    border: 2px dashed #d6d3d1;
+}
+
+/* =========================================
+   3. Layout & Containers
+   ========================================= */
+
+/* Chart Container (Unified from bezier.css and styles.css) */
+.chart-container {
+    position: relative;
+    width: 100%;
+    max-width: 800px;
+    height: 300px;
+    max-height: 400px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+@media (min-width: 768px) {
+    .chart-container {
+        height: 350px;
+    }
+}
+
+/* Interactive Canvas Wrapper (from bezier.css) */
+.interactive-canvas-wrapper {
+    position: relative;
+    width: 100%;
+    background-color: #f8fafc;
+    border: 2px solid #e2e8f0;
+    border-radius: 0.75rem;
+    overflow: hidden;
+    box-shadow: inset 0 2px 4px 0 rgba(0,0,0,0.06);
+    cursor: crosshair;
+}
+
+/* Noise Canvas Container (from styles.css) */
+.noise-canvas-container {
+    position: relative;
+    width: 100%;
+    max-width: 300px;
+    height: 300px;
+    margin: 0 auto;
+    border-radius: 0.5rem;
+    overflow: hidden;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+    background: #000;
+}
+
+/* =========================================
+   4. Animations & Utilities
+   ========================================= */
+
+/* Fade In Animation */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.animate-fade-in {
+    animation: fadeIn 0.5s ease-out forwards;
+}
+
+.step-hidden {
+    display: none;
+}
+
+.step-visible {
+    display: block;
+    animation: fadeIn 0.5s ease-out forwards;
+}
+
+/* Navigation Active State (from styles.css) */
+.nav-active {
+    background-color: #fff;
+    color: #ea580c; /* orange-600 */
+    font-weight: bold;
+    border-left: 4px solid #ea580c;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+}
