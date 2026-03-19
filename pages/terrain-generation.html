@@ -6,8 +6,6 @@
     <title>The Magic Behind Infinite Worlds: Procedural Terrain Generation</title>
     
     <!-- External Libraries -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     
     <!-- Custom Styles -->
     <link rel="stylesheet" href="../css/styles.css">
@@ -25,7 +23,7 @@
         
         <nav class="flex-1 overflow-y-auto">
             <ul class="space-y-1 p-2 text-sm">
-                <li><button onclick="switchSection('intro')" id="btn-intro" class="nav-item w-full text-left px-4 py-3 rounded-lg hover:bg-stone-100 transition-all nav-active">1. Intro & Cases</button></li>
+                <li><button onclick="switchSection('intro')" id="btn-intro" class="nav-item w-full text-left px-4 py-3 rounded-lg hover:bg-stone-100 transition-all nav-active">1. Intro &amp; Cases</button></li>
                 <li><button onclick="switchSection('pure-random')" id="btn-pure-random" class="nav-item w-full text-left px-4 py-3 rounded-lg hover:bg-stone-100 transition-all">2. The Start: Pure Randomness</button></li>
                 <li><button onclick="switchSection('smoothing')" id="btn-smoothing" class="nav-item w-full text-left px-4 py-3 rounded-lg hover:bg-stone-100 transition-all">3. Step 1: Interpolation</button></li>
                 <li><button onclick="switchSection('value-noise')" id="btn-value-noise" class="nav-item w-full text-left px-4 py-3 rounded-lg hover:bg-stone-100 transition-all">4. Outcome: Value Noise</button></li>
@@ -134,7 +132,7 @@
                 <!-- 3. Smoothing (Slide Interaction) -->
                 <section id="smoothing" class="page-section hidden">
                     <div class="mb-8">
-                        <h2 class="text-3xl font-bold text-stone-800">Step 1: Interpolation & Smoothing</h2>
+                    <h2 class="text-3xl font-bold text-stone-800">Step 1: Interpolation &amp; Smoothing</h2>
                         <p class="text-stone-500 mt-2">Since it's too chaotic, let's "smooth" it out.</p>
                     </div>
 
@@ -337,21 +335,21 @@
                     <div class="bg-white rounded-3xl shadow-xl overflow-hidden border border-stone-100">
                         <div class="p-6 bg-stone-50 border-b border-stone-100">
                             <div class="chart-container">
-                                <canvas id="fbmChart"></canvas>
+                            <canvas id="fbm-chart"></canvas>
                             </div>
                         </div>
                         <div class="p-8 grid grid-cols-1 md:grid-cols-3 gap-8">
                             <div class="space-y-3">
                                 <div class="flex justify-between"><label class="font-bold text-stone-700">Bass (Low Freq)</label><span class="text-xs bg-stone-200 px-2 py-1 rounded text-stone-600">Macro</span></div>
-                                <input type="range" id="bassRange" min="0" max="100" value="80" class="w-full h-2 bg-stone-200 rounded-lg appearance-none cursor-pointer accent-stone-700">
+                            <input type="range" id="bass-range" min="0" max="100" value="80" class="w-full h-2 bg-stone-200 rounded-lg appearance-none cursor-pointer accent-stone-700">
                             </div>
                             <div class="space-y-3">
                                 <div class="flex justify-between"><label class="font-bold text-teal-700">Mids (Mid Freq)</label><span class="text-xs bg-teal-100 px-2 py-1 rounded text-teal-800">Details</span></div>
-                                <input type="range" id="midRange" min="0" max="80" value="40" class="w-full h-2 bg-stone-200 rounded-lg appearance-none cursor-pointer accent-teal-600">
+                            <input type="range" id="mid-range" min="0" max="80" value="40" class="w-full h-2 bg-stone-200 rounded-lg appearance-none cursor-pointer accent-teal-600">
                             </div>
                             <div class="space-y-3">
                                 <div class="flex justify-between"><label class="font-bold text-orange-700">Treble (High Freq)</label><span class="text-xs bg-orange-100 px-2 py-1 rounded text-orange-800">Texture</span></div>
-                                <input type="range" id="trebleRange" min="0" max="50" value="20" class="w-full h-2 bg-stone-200 rounded-lg appearance-none cursor-pointer accent-orange-600">
+                            <input type="range" id="treble-range" min="0" max="50" value="20" class="w-full h-2 bg-stone-200 rounded-lg appearance-none cursor-pointer accent-orange-600">
                             </div>
                         </div>
                     </div>
@@ -395,7 +393,7 @@
                 <!-- 9. Applications -->
                 <section id="applications" class="page-section hidden">
                     <div class="mb-8">
-                        <h2 class="text-3xl font-bold text-stone-800">What else can Perlin Noise & FBM do?</h2>
+                    <h2 class="text-3xl font-bold text-stone-800">What else can Perlin Noise &amp; FBM do?</h2>
                         <p class="text-stone-500 mt-2">Beyond generating mountainous terrain, their uses are everywhere.</p>
                     </div>
 
@@ -403,12 +401,12 @@
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                         <div class="bg-white p-6 rounded-xl shadow-sm border border-stone-100 hover:shadow-md transition">
                             <div class="text-3xl mb-3">☁️</div>
-                            <h3 class="text-xl font-bold text-stone-800 mb-2">Dynamic Clouds & Fog</h3>
+                        <h3 class="text-xl font-bold text-stone-800 mb-2">Dynamic Clouds &amp; Fog</h3>
                             <p class="text-stone-600 text-sm">Using the time axis of 2D noise as a third dimension (3D Noise), slicing it creates cloud and fog effects that flow and deform naturally over time.</p>
                         </div>
                         <div class="bg-white p-6 rounded-xl shadow-sm border border-stone-100 hover:shadow-md transition">
                             <div class="text-3xl mb-3">🔥</div>
-                            <h3 class="text-xl font-bold text-stone-800 mb-2">Fire & Water Textures</h3>
+                        <h3 class="text-xl font-bold text-stone-800 mb-2">Fire &amp; Water Textures</h3>
                             <p class="text-stone-600 text-sm">By using Domain Warping to distort texture coordinates, you can simulate the disturbed natural forms of fire or water ripples.</p>
                         </div>
                         <div class="bg-white p-6 rounded-xl shadow-sm border border-stone-100 hover:shadow-md transition">
@@ -431,7 +429,7 @@
                 <!-- 10. References -->
                 <section id="references" class="page-section hidden">
                     <div class="mb-8">
-                        <h2 class="text-3xl font-bold text-stone-800">References & Further Reading</h2>
+                    <h2 class="text-3xl font-bold text-stone-800">References &amp; Further Reading</h2>
                         <p class="text-stone-500 mt-2">Want to dive deeper into the math? Here are the best resources.</p>
                     </div>
 
@@ -464,6 +462,8 @@
     </main>
 
     <!-- External Script -->
-    <script src="../script.js"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="../js/terrain.js"></script>
 </body>
 </html>
