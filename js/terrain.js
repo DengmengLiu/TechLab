@@ -263,12 +263,12 @@
     };
 
     // D. FBM Mixer Chart (Chart.js)
-    const fbmCtx = document.getElementById('fbmChart').getContext('2d');
+    const fbmCtx = document.getElementById('fbm-chart').getContext('2d');
     const labels = Array.from({length: 200}, (_, i) => i);
     function genWave(amp, freq, phase = 0) { return labels.map(x => Math.sin((x * freq * 0.1) + phase) * amp); }
-    const bassInput = document.getElementById('bassRange');
-    const midInput = document.getElementById('midRange');
-    const trebleInput = document.getElementById('trebleRange');
+    const bassInput = document.getElementById('bass-range');
+    const midInput = document.getElementById('mid-range');
+    const trebleInput = document.getElementById('treble-range');
     
     const fbmChart = new Chart(fbmCtx, {
         type: 'line',
